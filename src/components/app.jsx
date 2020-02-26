@@ -3,20 +3,24 @@ import ViewCards from './view-cards';
 import ReviewCards from './review-cards';
 import CreateCard from './create-card';
 import Nav from './nav';
+import { AppContext } from '../appContext';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            view: 'view-cards'
+            view: 'view-cards',
+            cards: [],
+            addCard: (newCard) => this.addCard(newCard),
+            setView: (view) => this.setView(view)
         };
         this.setView = this.setView.bind(this);
+        this.addCard = this.addCard.bind(this);
     }
 
-    setView(e) {
-        const curView = e.target.id;
+    setView(view) {
         this.setState({
-            view: curView
+            view
         });
     }
 
@@ -36,11 +40,26 @@ class App extends React.Component {
         }
     }
 
+    saveCards() {
+        localStorage.setItem('flash-cards', JSON.stringify(this.state.cards));
+    }
+
+    addCard(card) {
+        this.setState({
+            cards: [
+                ...this.state.cards,
+                card
+            ]
+        }, this.saveCards);
+    }
+
     render() {
         return (
             <div>
-                <Nav setView={this.setView} curView={this.state.view}/>
-                { this.getView() }
+                <AppContext.Provider value={this.state} >
+                    <Nav />
+                    { this.getView() }
+                </AppContext.Provider>
             </div>
         );
     }
