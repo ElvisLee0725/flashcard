@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppContext } from '../appContext';
+import { v4 as uuidv4 } from 'uuid';
 
 class CreateCard extends React.Component {
     constructor(props) {
@@ -23,9 +24,11 @@ class CreateCard extends React.Component {
         e.preventDefault();
         const { question, answer } = this.state;
         const newCard = {
+            id: uuidv4(),
             question,
             answer
         }
+
         this.context.addCard(newCard);
         this.reset();
     }
