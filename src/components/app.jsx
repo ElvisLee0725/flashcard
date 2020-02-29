@@ -18,6 +18,15 @@ class App extends React.Component {
         this.addCard = this.addCard.bind(this);
     }
 
+    componentDidMount() {
+        const cards = JSON.parse(localStorage.getItem('flash-cards'));
+        if(cards) {
+            this.setState({
+                cards: JSON.parse(localStorage.getItem('flash-cards'))
+            });
+        }
+    }
+
     setView(view) {
         this.setState({
             view
