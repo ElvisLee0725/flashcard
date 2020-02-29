@@ -9,6 +9,7 @@ class ReviewCards extends React.Component {
         }
         this.nextCard = this.nextCard.bind(this);
         this.previousCard = this.previousCard.bind(this);
+        this.handleToggleCard = this.handleToggleCard.bind(this);
     }
 
     nextCard() {
@@ -33,10 +34,22 @@ class ReviewCards extends React.Component {
         setActiveCard(nextIndex);
     }
 
+    handleToggleCard() {
+        this.setState({
+            showAnswer: !this.state.showAnswer
+        });
+    }
+
     render() {
+        const { activeCard } = this.context;
+        const displayContent = this.state.showAnswer ? activeCard.answer : activeCard.question;
+
         return (
             <div>
                 <h1 className="text-center">Review Cards</h1>
+                <div onClick={this.handleToggleCard}>
+                    <h2>{ displayContent }</h2>
+                </div>
                 <button type="button" onClick={this.nextCard}>Next</button>
                 <button type="button" onClick={this.previousCard}>Prev</button>
             </div>
