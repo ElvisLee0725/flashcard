@@ -77,10 +77,6 @@ class App extends React.Component {
     }
 
     render() {
-        if(this.state.activeCard && Object.entries(this.state.activeCard).length > 0) {
-            console.log(this.state.activeCard);
-        }
-        
         return (
             <div>
                 <AppContext.Provider value={this.state} >
