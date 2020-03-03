@@ -20,6 +20,7 @@ module.exports = {
       }
     ]
   },
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: join(__dirname, 'dist'),
     port: 3000,

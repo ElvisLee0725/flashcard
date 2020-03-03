@@ -26,7 +26,7 @@ class App extends React.Component {
             if(cards) {
                 this.setState({
                     cards
-                }, () => this.setActiveCard(0));    // Wrap the callback to an anonymous function so I can pass argument
+                });
             }
         }
         catch(error) {

@@ -12,6 +12,13 @@ class ReviewCards extends React.Component {
         this.handleToggleCard = this.handleToggleCard.bind(this);
     }
 
+    componentDidMount() {
+        const { setActiveCard, cards } = this.context;
+        if(cards.length > 0) {
+            setActiveCard(0);
+        }
+    }
+
     nextCard(e) {
         e.stopPropagation();
 
@@ -52,19 +59,30 @@ class ReviewCards extends React.Component {
 
     render() {
         const { activeCard } = this.context;
-        const displayContent = this.state.showAnswer ? activeCard.answer : activeCard.question;
-        const cssColor = this.state.showAnswer ? 'card-answer-bg' : 'card-question-bg';
+        let content = '';
+        
+        if(activeCard) {
+            const displayContent = this.state.showAnswer ? activeCard.answer : activeCard.question;
+            const cssColor = this.state.showAnswer ? 'card-answer-bg' : 'card-question-bg';
 
+            content = (
+                <div className={`review-area mt-3 ${cssColor}`} onClick={this.handleToggleCard}>
+                    <h2 className="card-content">{ displayContent }</h2>
+
+                    <a className="prev-btn ml-3" onClick={this.previousCard}><i className="fa fa-chevron-left fa-3x"></i></a>
+                    <a className="next-btn mr-3" onClick={this.nextCard}><i className="fa fa-chevron-right fa-3x"></i></a>    
+                </div>
+            );
+        }
+        else {
+            content = <h2 className="text-center mt-5">There is no flash cards to display.</h2>
+        }
+        
         return (
             <div>
                 <h1 className="text-center">Review Cards</h1>
                 <div className="container">
-                    <div className={`review-area mt-3 ${cssColor}`} onClick={this.handleToggleCard}>
-                        <h2 className="card-content">{ displayContent }</h2>
-
-                        <a className="prev-btn ml-3" onClick={this.previousCard}><i className="fa fa-chevron-left fa-3x"></i></a>
-                        <a className="next-btn mr-3" onClick={this.nextCard}><i className="fa fa-chevron-right fa-3x"></i></a>    
-                    </div>
+                    { content }
                 </div>
             </div>
         );
