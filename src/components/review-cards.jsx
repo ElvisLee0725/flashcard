@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppContext } from '../appContext';
+import ProgressBar from './progress-bar';
 
 class ReviewCards extends React.Component {
     constructor(props) {
@@ -58,15 +59,24 @@ class ReviewCards extends React.Component {
     }
 
     render() {
-        const { activeCard } = this.context;
+        const { activeCard, cards } = this.context;
         let content = '';
-        
+        let completePercentage = 0;
+
         if(activeCard) {
+            // For ProgressBar
+            const curIndex = cards.findIndex((card) => card.id === activeCard.id);
+            completePercentage = Math.round((curIndex / cards.length) * 100);
+            if(curIndex === cards.length - 1 && this.state.showAnswer) {
+                completePercentage = 100;
+            }
+
+            // For Review Flash Cards
             const displayContent = this.state.showAnswer ? activeCard.answer : activeCard.question;
             const cssColor = this.state.showAnswer ? 'card-answer-bg' : 'card-question-bg';
 
             content = (
-                <div className={`review-area mt-3 ${cssColor}`} onClick={this.handleToggleCard}>
+                <div className={`review-area mt-1 ${cssColor}`} onClick={this.handleToggleCard}>
                     <h2 className="card-content">{ displayContent }</h2>
 
                     <a className="prev-btn ml-3" onClick={this.previousCard}><i className="fa fa-chevron-left fa-3x"></i></a>
@@ -81,7 +91,8 @@ class ReviewCards extends React.Component {
         return (
             <div>
                 <h1 className="text-center">Review Cards</h1>
-                <div className="container">
+                <div className="container mt-5">
+                    <ProgressBar complete={completePercentage}/>
                     { content }
                 </div>
             </div>

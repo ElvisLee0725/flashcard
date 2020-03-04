@@ -50,3 +50,7 @@
     color: #eeeeee !important;
     transition: .8s;
 }
+
+.progress {
+    border-radius: 0;
+}
