@@ -51,6 +51,11 @@
     transition: .8s;
 }
 
+
+.progress {
+    border-radius: 0;
+}
+
 .card-footer-bg {
     background-color: #444444;
     color: #6c757d;

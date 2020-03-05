@@ -46,7 +46,7 @@ class CreateCard extends React.Component {
         return (
             <div className="container">
                 <h1 className="text-center">Create New Card</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form className="mt-5" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="question">Question:</label>
                         <textarea type="text" className="form-control" value={question} name="question" onChange={this.handleChange} autoFocus></textarea>
