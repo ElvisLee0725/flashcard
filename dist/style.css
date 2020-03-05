@@ -50,3 +50,60 @@
     color: #eeeeee !important;
     transition: .8s;
 }
+
+.card-footer-bg {
+    background-color: #444444;
+    color: #6c757d;
+}
+
+.delete-btn {
+    cursor: pointer;
+    transition: .5s;
+}
+
+.delete-btn:hover {
+    color: #eeeeee;
+    transition: .5s;
+}
+
+.basic-modal {
+    background-color: rgba(0, 0, 0, .6);
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    display: flex;
+}
+
+.basic-modal-content {
+    background-color: #f4f4f4;
+    width: 50%;
+    position: relative;
+    margin: auto;
+    padding: 2rem;
+    z-index: 1;
+}
+
+.modal-close-btn {
+    position: absolute;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    top: 1rem;
+    right: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.modal-close-btn:hover {
+    opacity: .5;
+    transition: .5s;
+}
+
+.delete-title {
+    color: #444444;
+}

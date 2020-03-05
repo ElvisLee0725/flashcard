@@ -14,7 +14,8 @@ class App extends React.Component {
             activeCard: undefined,
             addCard: (newCard) => this.addCard(newCard),
             setView: (view) => this.setView(view),
-            setActiveCard: (index) => this.setActiveCard(index)
+            setActiveCard: (index) => this.setActiveCard(index),
+            removeCard: () => this.removeCard()
         };
         this.setView = this.setView.bind(this);
         this.addCard = this.addCard.bind(this);
@@ -74,6 +75,14 @@ class App extends React.Component {
         this.setState((prevState) => ({
             activeCard: prevState.cards[index]
         }));
+    }
+
+    removeCard() {
+        this.setState({
+            cards: this.state.cards.filter((card) => {
+                return card.id !== this.state.activeCard.id;
+            })
+        }, this.saveCards);
     }
 
     render() {
