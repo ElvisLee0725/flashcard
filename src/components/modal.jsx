@@ -50,7 +50,7 @@ class Modal extends React.Component {
         }
 
         return (
-            <i className="fa fa-trash delete-btn" onClick={this.openModal}></i>
+            <i className="fa fa-trash icon-btn" onClick={this.openModal}></i>
         );
     }
 }

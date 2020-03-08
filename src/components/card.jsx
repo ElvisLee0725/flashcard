@@ -6,15 +6,30 @@ class Card extends React.Component {
     constructor(props) {
         super(props);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
 
-    // Set the activeCard prop as the card selected to delete
+    // Set the activeCard as the card selected to delete
     handleDelete() {
-        const { cards, setActiveCard } = this.context;
-        const indexToDelete = cards.findIndex((card) => {
+        this.setSelectedCardActive();
+    }
+
+    // Set the activeCard as the card selected to edit
+    handleEdit() {
+        const { setView } = this.context;
+        this.setSelectedCardActive();
+        setView('update-card');
+    }
+
+    setSelectedCardActive() {
+        const { cards, setActiveCard } = this.context; 
+        const index = cards.findIndex((card) => {
             return card.id === this.props.id;
         });
-        setActiveCard(indexToDelete);
+
+        if(index !== -1) {
+            setActiveCard(index);
+        }
     }
 
     render() {
@@ -30,6 +45,7 @@ class Card extends React.Component {
                         <p className="card-text">{this.props.answer}</p>
                     </div>
                     <div className="card-footer card-footer-bg text-center">
+                        <i className="fa fa-edit icon-btn mr-1" onClick={this.handleEdit}></i>
                         <Modal handleDelete={this.handleDelete}/>
                     </div>
                 </div>

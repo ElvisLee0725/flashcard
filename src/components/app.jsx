@@ -2,6 +2,7 @@ import React from 'react';
 import ViewCards from './view-cards';
 import ReviewCards from './review-cards';
 import CreateCard from './create-card';
+import UpdateCard from './update-card';
 import Nav from './nav';
 import { AppContext } from '../appContext';
 
@@ -52,6 +53,9 @@ class App extends React.Component {
             
             case 'view-cards':
                 return <ViewCards />;
+
+            case 'update-card':
+                return <UpdateCard />;
 
             default:
                 return null;
