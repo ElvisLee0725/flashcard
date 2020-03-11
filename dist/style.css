@@ -61,12 +61,12 @@
     color: #6c757d;
 }
 
-.delete-btn {
+.icon-btn {
     cursor: pointer;
     transition: .5s;
 }
 
-.delete-btn:hover {
+.icon-btn:hover {
     color: #eeeeee;
     transition: .5s;
 }

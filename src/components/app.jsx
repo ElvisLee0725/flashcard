@@ -2,6 +2,7 @@ import React from 'react';
 import ViewCards from './view-cards';
 import ReviewCards from './review-cards';
 import CreateCard from './create-card';
+import UpdateCard from './update-card';
 import Nav from './nav';
 import { AppContext } from '../appContext';
 
@@ -13,12 +14,14 @@ class App extends React.Component {
             cards: [],
             activeCard: undefined,
             addCard: (newCard) => this.addCard(newCard),
+            editCard: (card) => this.editCard(card),
             setView: (view) => this.setView(view),
             setActiveCard: (index) => this.setActiveCard(index),
             removeCard: () => this.removeCard()
         };
         this.setView = this.setView.bind(this);
         this.addCard = this.addCard.bind(this);
+        this.editCard = this.editCard.bind(this);
     }
 
     componentDidMount() {
@@ -53,6 +56,9 @@ class App extends React.Component {
             case 'view-cards':
                 return <ViewCards />;
 
+            case 'update-card':
+                return <UpdateCard />;
+
             default:
                 return null;
         }
@@ -69,6 +75,22 @@ class App extends React.Component {
                 card
             ]
         }, this.saveCards);
+    }
+
+    editCard(updatedCard) {
+        this.setState((prevState) => ({
+            cards: prevState.cards.map((card) => {
+                if(card.id === updatedCard.id) {
+                    return {
+                        ...card,
+                        ...updatedCard
+                    }
+                }
+                else {
+                    return card;
+                }
+            })
+        }), this.saveCards);
     }
 
     setActiveCard(index) {
