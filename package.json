@@ -1,12 +1,11 @@
 {
-  "name": "react-flash-cards-pt",
+  "name": "react-flashcard",
   "version": "1.0.0",
   "description": "A Flash Card App built with React.js",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
