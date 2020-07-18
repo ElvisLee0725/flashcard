@@ -1,8 +1,12 @@
-const { join } = require('path');
+const path = require('path');
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+  },
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -12,18 +16,17 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: [
-              '@babel/plugin-transform-react-jsx'
-            ]
-          }
-        }
-      }
-    ]
+            plugins: ['@babel/plugin-transform-react-jsx'],
+          },
+        },
+      },
+    ],
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: join(__dirname, 'dist'),
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, 'dist'),
     port: 3000,
-    stats: 'minimal'
-  }
-}
+    stats: 'minimal',
+  },
+};

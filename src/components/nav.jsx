@@ -1,35 +1,47 @@
 import React from 'react';
-import { AppContext } from '../appContext';
+import { NavLink } from 'react-router-dom';
 
-class Nav extends React.Component {
-    constructor(props) {
-        super(props);
-        this.showComponent = this.showComponent.bind(this);
-    }
-
-    showComponent(e) {
-        this.context.setView(e.target.id);
-    }
-
-    render() {
-        const curView = this.context.view;
-
-        const viewActive = curView === 'view-cards' ? 'active' : ''; 
-        const reviewActive = curView === 'review-cards' ? 'active' : ''; 
-        const createActive = curView === 'create-card' ? 'active' : ''; 
-
-        return (
-            <div className="nav-container">
-                <nav className="nav nav-pills nav-justified">
-                    <a className={`nav-item nav-link ${viewActive}`} onClick={this.showComponent} id="view-cards">View Cards</a>
-                    <a className={`nav-item nav-link ${reviewActive}`} onClick={this.showComponent} id="review-cards">Review</a>
-                    <a className={`nav-item nav-link ${createActive}`} onClick={this.showComponent} id="create-card">Create Card</a>
-                </nav>
-            </div>
-        );
-    }
-}
-
-Nav.contextType = AppContext;
+const Nav = () => {
+  return (
+    <nav class='navbar navbar-light'>
+      <div className='navbar-brand d-none d-sm-block'>
+        <img src='/images/flashcard-logo.png' alt='logo' />
+      </div>
+      <ul className='nav justify-content-center'>
+        <li className='nav-item'>
+          <NavLink
+            className='nav-link'
+            to='/'
+            activeClassName='nav-active'
+            exact
+          >
+            All cards
+          </NavLink>
+        </li>
+        <li className='nav-item'>
+          <NavLink
+            className='nav-link'
+            activeClassName='nav-active'
+            to='/practice'
+            exact
+          >
+            Practice
+          </NavLink>
+        </li>
+        <li className='nav-item'>
+          <NavLink
+            className='nav-link'
+            activeClassName='nav-active'
+            to='/marked'
+            exact
+          >
+            Marked
+          </NavLink>
+        </li>
+      </ul>
+      <div className='navbar-brand invisible d-none d-sm-block'>Navbar</div>
+    </nav>
+  );
+};
 
 export default Nav;
