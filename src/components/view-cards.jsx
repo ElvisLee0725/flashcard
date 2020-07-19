@@ -1,28 +1,40 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import Card from './card';
 import { AppContext } from '../appContext';
 
 function ViewCards() {
-    return (
-        <div>
-            <h1 className="text-center">My Cards</h1>
-            <AppContext.Consumer>
-                {(values) => {
-                    const allCards = values.cards.map((card) => {
-                        return <Card key={card.id} {...card} />
-                    });
+  return (
+    <div>
+      <h1 className='text-center'>My Cards</h1>
+      <AppContext.Consumer>
+        {(values) => {
+          return (
+            <div className='container text-center mt-5'>
+              {values.cards.length === 0 ? (
+                <Fragment>
+                  <h3>Oops...looks like you have no flashcards.</h3>
+                  <h5>Start creating by clicking the "Add card" button.</h5>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <div className='row row-cols-1 row-cols-md-3'>
+                    {values.cards.map((card) => {
+                      return <Card key={card.id} {...card} />;
+                    })}
+                  </div>
+                </Fragment>
+              )}
 
-                    return (
-                        <div className="container mt-5">
-                            <div className="row row-cols-1 row-cols-md-3">
-                                { allCards }
-                            </div>
-                        </div>
-                    );
-                }}
-            </AppContext.Consumer>
-        </div>
-    );
+              <Link className='btn btn-navy btn-lg my-5' to='/add'>
+                <i className='fa fa-plus mr-3'></i>Add card
+              </Link>
+            </div>
+          );
+        }}
+      </AppContext.Consumer>
+    </div>
+  );
 }
 
 export default ViewCards;

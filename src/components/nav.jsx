@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <nav class='navbar navbar-light'>
+    <nav className='navbar navbar-light'>
       <div className='navbar-brand d-none d-sm-block'>
         <img src='/images/flashcard-logo.png' alt='logo' />
       </div>
