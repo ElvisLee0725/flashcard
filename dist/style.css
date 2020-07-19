@@ -1,3 +1,8 @@
+a {
+  color: #000;
+  text-decoration: none;
+}
+
 .nav-container {
   padding: 2rem;
 }
@@ -28,6 +33,10 @@
   border-bottom-style: solid;
 }
 
+.card {
+  box-shadow: 2px 5px 5px #ccc;
+}
+
 .card-question-bg {
   background-color: #444444;
   color: #f4f4f4;
@@ -35,6 +44,14 @@
 
 .card-answer-bg {
   background-color: #dddddd;
+}
+
+.card-footer-bg {
+  background-color: #ffffff;
+  color: #6c757d;
+  display: flex;
+  justify-content: space-around;
+  border-top: 0;
 }
 
 .review-area {
@@ -87,19 +104,15 @@
   border-radius: 0;
 }
 
-.card-footer-bg {
-  background-color: #444444;
-  color: #6c757d;
-}
-
 .icon-btn {
+  color: #000;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.3s ease-in-out;
 }
 
 .icon-btn:hover {
-  color: #eeeeee;
-  transition: 0.5s;
+  color: #cccccc;
+  transition: 0.3s ease-in-out;
 }
 
 .basic-modal {

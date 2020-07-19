@@ -35,22 +35,29 @@ class Card extends React.Component {
     return (
       <div className='col mb-4'>
         <div className='card h-100'>
-          <div className='card-body card-question-bg'>
-            <h5 className='card-title text-muted'>Question:</h5>
+          <div className='card-body'>
             <p className='card-text'>{this.props.question}</p>
           </div>
-          <div className='card-body card-answer-bg'>
-            <h5 className='card-title text-muted'>Answer:</h5>
+          <div className='card-body'>
             <p className='card-text'>{this.props.answer}</p>
           </div>
           <div className='card-footer card-footer-bg text-center'>
+            <div>
+              <Modal handleDelete={this.handleDelete} />
+            </div>
+
             <Link to='/update'>
-              <i
-                className='fa fa-edit icon-btn mr-1'
-                onClick={this.handleEdit}
-              ></i>
+              <div>
+                <i
+                  className='far fa-edit fa-lg fa-fw icon-btn'
+                  onClick={this.handleEdit}
+                ></i>
+              </div>
             </Link>
-            <Modal handleDelete={this.handleDelete} />
+
+            <div>
+              <i className='far fa-star fa-lg fa-fw icon-btn'></i>
+            </div>
           </div>
         </div>
       </div>

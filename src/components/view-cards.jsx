@@ -6,7 +6,6 @@ import { AppContext } from '../appContext';
 function ViewCards() {
   return (
     <div>
-      <h1 className='text-center'>My Cards</h1>
       <AppContext.Consumer>
         {(values) => {
           return (
@@ -18,7 +17,7 @@ function ViewCards() {
                 </Fragment>
               ) : (
                 <Fragment>
-                  <div className='row row-cols-1 row-cols-md-3'>
+                  <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3'>
                     {values.cards.map((card) => {
                       return <Card key={card.id} {...card} />;
                     })}
@@ -26,7 +25,7 @@ function ViewCards() {
                 </Fragment>
               )}
 
-              <Link className='btn btn-navy btn-lg my-5' to='/add'>
+              <Link className='btn btn-navy btn-lg my-4' to='/add'>
                 <i className='fa fa-plus mr-3'></i>Add card
               </Link>
             </div>
