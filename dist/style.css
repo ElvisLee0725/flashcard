@@ -47,6 +47,16 @@
   cursor: pointer;
 }
 
+.btn-navy {
+  background-color: #3223d8;
+  color: #ffffff;
+}
+
+.btn-navy:hover {
+  background-color: #1001b6;
+  color: #ffffff;
+}
+
 .next-btn {
   position: absolute;
   right: 0;

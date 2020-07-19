@@ -122,6 +122,8 @@ class App extends React.Component {
             <Route exact path='/' component={ViewCards} />
             <Route exact path='/practice' component={ReviewCards} />
             <Route exact path='/marked' component={MarkedCards} />
+            <Route exact path='/add' component={CreateCard} />
+            <Route exact path='/update' component={UpdateCard} />
             <Route component={NotFound} />
           </Switch>
         </AppContext.Provider>
