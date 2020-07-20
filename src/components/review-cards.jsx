@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { AppContext } from '../appContext';
 import ProgressBar from './progress-bar';
 
@@ -72,27 +72,24 @@ class ReviewCards extends React.Component {
       }
 
       // For Review Flash Cards
-      const displayContent = this.state.showAnswer
-        ? activeCard.answer
-        : activeCard.question;
-      const cssColor = this.state.showAnswer
-        ? 'card-answer-bg'
-        : 'card-question-bg';
+      const { showAnswer } = this.state;
 
       content = (
-        <div
-          className={`review-area mt-1 ${cssColor}`}
-          onClick={this.handleToggleCard}
-        >
-          <h2 className='card-content'>{displayContent}</h2>
-
-          <a className='prev-btn ml-3' onClick={this.previousCard}>
-            <i className='fa fa-chevron-left fa-3x'></i>
-          </a>
-          <a className='next-btn mr-3' onClick={this.nextCard}>
-            <i className='fa fa-chevron-right fa-3x'></i>
-          </a>
-        </div>
+        <Fragment>
+          <div className='review-area mt-1' onClick={this.handleToggleCard}>
+            <h2 className='card-content'>
+              {showAnswer ? activeCard.answer : activeCard.question}
+            </h2>
+          </div>
+          <div className='text-center practice-progress mt-4'>
+            <i
+              className='fas fa-arrow-left fa-lg'
+              onClick={this.previousCard}
+            ></i>
+            <span className='mx-5'>{`${curIndex + 1} / ${cards.length}`}</span>
+            <i className='fas fa-arrow-right fa-lg' onClick={this.nextCard}></i>
+          </div>
+        </Fragment>
       );
     } else {
       content = (
@@ -102,7 +99,6 @@ class ReviewCards extends React.Component {
 
     return (
       <div>
-        <h1 className='text-center'>Review Cards</h1>
         <div className='container mt-5'>
           <ProgressBar complete={completePercentage} />
           {content}
