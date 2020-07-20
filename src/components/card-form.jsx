@@ -101,16 +101,16 @@ class CardForm extends React.Component {
             ></textarea>
           </div>
 
-          <div className='form-group text-right'>
+          <div className='form-group text-center text-sm-right mt-5'>
             <button
               type='button'
-              className='btn btn-danger mr-2'
+              className='btn btn-danger btn-fixStyle mr-2'
               onClick={this.reset}
             >
               Cancel
             </button>
-            <button type='submit' className='btn btn-success'>
-              Save Card
+            <button type='submit' className='btn btn-navy btn-fixStyle'>
+              Save
             </button>
           </div>
         </form>
