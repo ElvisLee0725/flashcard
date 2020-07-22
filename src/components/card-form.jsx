@@ -33,6 +33,7 @@ class CardForm extends React.Component {
         id: uuidv4(),
         question,
         answer,
+        marked: false,
       };
       addCard(newCard);
     } else {

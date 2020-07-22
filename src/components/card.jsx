@@ -21,7 +21,6 @@ class Card extends React.Component {
   }
 
   setSelectedCardActive() {
-    const { cards, setActiveCard } = this.context;
     const index = cards.findIndex((card) => {
       return card.id === this.props.id;
     });
@@ -32,18 +31,31 @@ class Card extends React.Component {
   }
 
   render() {
+    const { id, question, answer } = this.props;
+    const { cards, setActiveCard, markCard } = this.context;
+
     return (
       <div className='col mb-4'>
         <div className='card h-100'>
           <div className='card-body'>
-            <p className='card-text'>{this.props.question}</p>
+            <p className='card-text font-weight-bold'>{question}</p>
           </div>
           <div className='card-body'>
-            <p className='card-text'>{this.props.answer}</p>
+            <p className='card-text'>{answer}</p>
           </div>
           <div className='card-footer card-footer-bg text-center'>
             <div>
-              <Modal handleDelete={this.handleDelete} />
+              <Modal
+                handleDelete={() => {
+                  const index = cards.findIndex((card) => {
+                    return card.id === id;
+                  });
+
+                  if (index !== -1) {
+                    setActiveCard(index);
+                  }
+                }}
+              />
             </div>
 
             <Link to='/update'>
@@ -56,7 +68,10 @@ class Card extends React.Component {
             </Link>
 
             <div>
-              <i className='far fa-star fa-lg fa-fw icon-btn'></i>
+              <i
+                className='far fa-star fa-lg fa-fw icon-btn'
+                onClick={() => markCard(id)}
+              ></i>
             </div>
           </div>
         </div>
