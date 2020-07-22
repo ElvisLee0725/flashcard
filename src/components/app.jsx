@@ -15,9 +15,11 @@ class App extends React.Component {
     this.state = {
       view: 'view-cards',
       cards: [],
+      markedCards: [],
       activeCard: undefined,
       addCard: (newCard) => this.addCard(newCard),
       editCard: (card) => this.editCard(card),
+      markCard: (id) => this.markCard(id),
       setView: (view) => this.setView(view),
       setActiveCard: (index) => this.setActiveCard(index),
       removeCard: () => this.removeCard(),
@@ -33,6 +35,7 @@ class App extends React.Component {
       if (cards) {
         this.setState({
           cards,
+          markedCards: cards.filter((card) => card.marked),
         });
       }
     } catch (error) {
@@ -92,6 +95,30 @@ class App extends React.Component {
           }
         }),
       }),
+      this.saveCards
+    );
+  }
+
+  markCard(id) {
+    this.setState(
+      (prevState) => ({
+        cards: prevState.cards.map((card) => {
+          if (card.id === id) {
+            card.marked = !card.marked;
+          }
+          return card;
+        }),
+      }),
+      this.setMarkedCards
+    );
+  }
+
+  // Re-generate markedCards array since cards array is updated, and update the cards stored in localStorage
+  setMarkedCards() {
+    this.setState(
+      {
+        markedCards: this.state.cards.filter((card) => card.marked),
+      },
       this.saveCards
     );
   }
