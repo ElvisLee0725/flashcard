@@ -6,28 +6,6 @@ import Modal from './modal';
 class Card extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
-  }
-
-  // Set the activeCard as the card selected to delete
-  handleDelete() {
-    this.setSelectedCardActive();
-  }
-
-  // Set the activeCard as the card selected to edit
-  handleEdit() {
-    this.setSelectedCardActive();
-  }
-
-  setSelectedCardActive() {
-    const index = cards.findIndex((card) => {
-      return card.id === this.props.id;
-    });
-
-    if (index !== -1) {
-      setActiveCard(index);
-    }
   }
 
   render() {
@@ -62,7 +40,15 @@ class Card extends React.Component {
               <div>
                 <i
                   className='far fa-edit fa-lg fa-fw icon-btn'
-                  onClick={this.handleEdit}
+                  onClick={() => {
+                    const index = cards.findIndex((card) => {
+                      return card.id === id;
+                    });
+
+                    if (index !== -1) {
+                      setActiveCard(index);
+                    }
+                  }}
                 ></i>
               </div>
             </Link>
