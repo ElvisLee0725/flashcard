@@ -2,12 +2,12 @@ import React from 'react';
 import ReviewCards from './review-cards';
 import { AppContext } from '../appContext';
 
-const MarkedCards = () => {
+const Practice = () => {
   return (
     <AppContext.Consumer>
-      {(values) => <ReviewCards cards={values.markedCards} />}
+      {(values) => <ReviewCards cards={values.cards} />}
     </AppContext.Consumer>
   );
 };
 
-export default MarkedCards;
+export default Practice;

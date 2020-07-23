@@ -69,12 +69,23 @@ a {
   transition: 0.3s ease-in-out;
 }
 
+.icon-starBtn {
+  color: #ffdf00;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.icon-starBtn:hover {
+  color: #ddbd00;
+  transition: 0.3s ease-in-out;
+}
+
 /* Practice */
 
 .review-area {
   width: 100%;
   height: 500px;
-  position: relative;
+  padding: 0 3rem;
   display: flex;
   justify-content: center;
   align-items: center;

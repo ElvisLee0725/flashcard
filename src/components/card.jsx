@@ -9,7 +9,7 @@ class Card extends React.Component {
   }
 
   render() {
-    const { id, question, answer } = this.props;
+    const { id, question, answer, marked } = this.props;
     const { cards, setActiveCard, markCard } = this.context;
 
     return (
@@ -54,10 +54,17 @@ class Card extends React.Component {
             </Link>
 
             <div>
-              <i
-                className='far fa-star fa-lg fa-fw icon-btn'
-                onClick={() => markCard(id)}
-              ></i>
+              {marked ? (
+                <i
+                  className='fas fa-star fa-lg fa-fw icon-starBtn'
+                  onClick={() => markCard(id)}
+                ></i>
+              ) : (
+                <i
+                  className='far fa-star fa-lg fa-fw icon-btn'
+                  onClick={() => markCard(id)}
+                ></i>
+              )}
             </div>
           </div>
         </div>
