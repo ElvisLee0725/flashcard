@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ViewCards from './view-cards';
-import ReviewCards from './review-cards';
+import Practice from './practice';
 import MarkedCards from './marked-cards';
 import CreateCard from './create-card';
 import UpdateCard from './update-card';
@@ -147,7 +147,7 @@ class App extends React.Component {
           <Nav />
           <Switch>
             <Route exact path='/' component={ViewCards} />
-            <Route exact path='/practice' component={ReviewCards} />
+            <Route exact path='/practice' component={Practice} />
             <Route exact path='/marked' component={MarkedCards} />
             <Route exact path='/add' component={CreateCard} />
             <Route exact path='/update' component={UpdateCard} />
