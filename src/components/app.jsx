@@ -13,18 +13,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'view-cards',
       cards: [],
       markedCards: [],
       activeCard: undefined,
       addCard: (newCard) => this.addCard(newCard),
       editCard: (card) => this.editCard(card),
       markCard: (id) => this.markCard(id),
-      setView: (view) => this.setView(view),
       setActiveCard: (index) => this.setActiveCard(index),
       removeCard: () => this.removeCard(),
     };
-    this.setView = this.setView.bind(this);
     this.addCard = this.addCard.bind(this);
     this.editCard = this.editCard.bind(this);
   }
@@ -40,31 +37,6 @@ class App extends React.Component {
       }
     } catch (error) {
       console.log(error.message);
-    }
-  }
-
-  setView(view) {
-    this.setState({
-      view,
-    });
-  }
-
-  getView() {
-    switch (this.state.view) {
-      case 'create-card':
-        return <CreateCard />;
-
-      case 'review-cards':
-        return <ReviewCards />;
-
-      case 'view-cards':
-        return <ViewCards />;
-
-      case 'update-card':
-        return <UpdateCard />;
-
-      default:
-        return null;
     }
   }
 
