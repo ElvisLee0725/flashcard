@@ -23,15 +23,15 @@ Try this application live at https://flashcard.elvislee.com
 
 ### Add a card
 
-![add-card](/preview/flashcard_add_card.gif)
+![add-card](preview/flashcard_add_card.gif?raw=true)
 
 ### Practice
 
-![practice](/preview/flashcard_practice.gif)
+![practice](preview/flashcard_practice.gif?raw=true)
 
 ### Mark cards
 
-![mark-cards](/preview/flashcard_marked.gif)
+![mark-cards](preview/flashcard_marked.gif?raw=true)
 
 ## Development
 
