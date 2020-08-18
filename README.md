@@ -19,6 +19,20 @@ Try this application live at https://flashcard.elvislee.com
 - User can view cards and edit or delete a single card at "All cards" tab.
 - User can play each card and click on screen to see the answer at "Practice" tab.
 
+## Preview
+
+### Add a card
+
+![](preview/flashcard_add_card.gif)
+
+### Practice
+
+![](preview/flashcard_practice.gif)
+
+### Mark cards
+
+![](preview/flashcard_marked.gif)
+
 ## Development
 
 ### System Requirements
