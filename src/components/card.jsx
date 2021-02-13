@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../appContext';
-import Modal from './modal';
+import DeleteModal from './delete-modal';
 
 class Card extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class Card extends React.Component {
           </div>
           <div className='card-footer card-footer-bg text-center'>
             <div>
-              <Modal
+              <DeleteModal
                 handleDelete={() => {
                   const index = cards.findIndex((card) => {
                     return card.id === id;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import HowToUseModal from './how-to-use-modal';
 
 const Nav = () => {
   return (
@@ -38,6 +39,7 @@ const Nav = () => {
             Marked
           </NavLink>
         </li>
+        <HowToUseModal />
       </ul>
       <div className='navbar-brand invisible d-none d-sm-block'>Navbar</div>
     </nav>
