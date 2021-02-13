@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppContext } from '../appContext';
 
-class Modal extends React.Component {
+class DeleteModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,6 +77,6 @@ class Modal extends React.Component {
   }
 }
 
-Modal.contextType = AppContext;
+DeleteModal.contextType = AppContext;
 
-export default Modal;
+export default DeleteModal;
