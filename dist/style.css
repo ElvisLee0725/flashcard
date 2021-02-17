@@ -1,3 +1,7 @@
+:root {
+  --theme-color: #f894f4;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -174,6 +178,11 @@ a {
 
 .delete-title {
   color: #444444;
+}
+
+.btn-purple {
+  background-color: var(--theme-color);
+  color: #ffffff;
 }
 
 .btn-navy {

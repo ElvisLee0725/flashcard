@@ -24,9 +24,21 @@ function ViewCards() {
               </Fragment>
             )}
 
-            <Link className='btn btn-navy btn-lg my-4' to='/add'>
-              <i className='fa fa-plus mr-3'></i>Add card
-            </Link>
+            <div>
+              <Link className='btn btn-purple btn-lg my-4' to='/add'>
+                <i className='fa fa-plus mr-3'></i>Add card
+              </Link>
+            </div>
+            <div>
+              <button className='btn btn-navy btn-lg my-4' onClick={values.insertDummyData}>
+                <i className='fas fa-file-import mr-3'></i>Import test cards
+              </button>
+            </div>
+            <div>
+              <button className='btn btn-navy btn-lg my-4' onClick={values.removeAllCards}>
+                <i className='fas fa-dumpster mr-3'></i>Delete all cards
+              </button>
+            </div>
           </div>
         );
       }}

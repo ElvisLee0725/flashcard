@@ -7,6 +7,8 @@ import UpdateCard from './update-card';
 import NotFound from './not-found';
 import Nav from './nav';
 import { AppContext } from '../appContext';
+import dummyCards from '../testData';
+import { v4 as uuidv4 } from 'uuid';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
@@ -19,8 +21,10 @@ class App extends React.Component {
       addCard: (newCard) => this.addCard(newCard),
       editCard: (card) => this.editCard(card),
       markCard: (id) => this.markCard(id),
+      insertDummyData: () => this.insertDummyData(),
       setActiveCard: (index) => this.setActiveCard(index),
       removeCard: () => this.removeCard(),
+      removeAllCards: () => this.removeAllCards()
     };
     this.addCard = this.addCard.bind(this);
     this.editCard = this.editCard.bind(this);
@@ -85,6 +89,18 @@ class App extends React.Component {
     );
   }
 
+  insertDummyData() {
+    this.setState({
+      cards: [...this.state.cards, ...dummyCards.map((card) => {
+        const cardWithID = {
+          ...card,
+          id: uuidv4()
+        }
+        return cardWithID;
+      })]
+    }, this.saveCards);
+  }
+
   // Re-generate markedCards array since cards array is updated, and update the cards stored in localStorage
   setMarkedCards() {
     this.setState(
@@ -102,14 +118,16 @@ class App extends React.Component {
   }
 
   removeCard() {
-    this.setState(
-      {
-        cards: this.state.cards.filter((card) => {
-          return card.id !== this.state.activeCard.id;
-        }),
-      },
-      this.saveCards
-    );
+    this.setState({
+      cards: this.state.cards.filter((card) => {
+        return card.id !== this.state.activeCard.id;
+      })}, this.saveCards);
+  }
+
+  removeAllCards() {
+    this.setState({
+      cards: []
+    }, this.saveCards);
   }
 
   render() {
