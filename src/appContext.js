@@ -6,6 +6,7 @@ export const AppContext = React.createContext({
   markCard: () => {},
   setActiveCard: () => {},
   removeCard: () => {},
+  insertDummyData: () => {},
   cards: [],
   markedCards: [],
   activeCard: undefined,

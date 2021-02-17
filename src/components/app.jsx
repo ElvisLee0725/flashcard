@@ -7,6 +7,7 @@ import UpdateCard from './update-card';
 import NotFound from './not-found';
 import Nav from './nav';
 import { AppContext } from '../appContext';
+import dummyCards from '../testData';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
       addCard: (newCard) => this.addCard(newCard),
       editCard: (card) => this.editCard(card),
       markCard: (id) => this.markCard(id),
+      insertDummyData: () => this.insertDummyData(),
       setActiveCard: (index) => this.setActiveCard(index),
       removeCard: () => this.removeCard(),
     };
@@ -83,6 +85,12 @@ class App extends React.Component {
       }),
       this.setMarkedCards
     );
+  }
+
+  insertDummyData() {
+    this.setState({
+      cards: [...this.state.cards, ...dummyCards]
+    }, this.saveCards);
   }
 
   // Re-generate markedCards array since cards array is updated, and update the cards stored in localStorage
