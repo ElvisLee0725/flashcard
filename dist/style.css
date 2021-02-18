@@ -1,5 +1,8 @@
 :root {
-  --theme-color: #f894f4;
+  --primary-color: #f894f4;
+  --primary-color-dark: #b90cb2;
+  --secondary-color: #3223d8;
+  --secondary-color-dark: #1001b6;
 }
 
 body {
@@ -180,18 +183,25 @@ a {
   color: #444444;
 }
 
-.btn-purple {
-  background-color: var(--theme-color);
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+  color: #ffffff;
+  border: var(--primary-color-dark);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
   color: #ffffff;
 }
 
-.btn-navy {
-  background-color: #3223d8;
-  color: #ffffff;
-}
-
-.btn-navy:hover {
-  background-color: #1001b6;
+.btn-secondary:hover {
+  background-color: var(--secondary-color-dark);
   color: #ffffff;
 }
 
@@ -200,12 +210,26 @@ a {
   width: 45%;
 }
 
+.btn-fixStyle-lg {
+  width: 95%;
+}
+
 @media (min-width: 768px) {
   .btn-fixStyle {
     width: 20%;
   }
+  .btn-fixStyle-lg {
+    width: 45%;
+  }
 }
 
+@media (min-width: 996px) {
+  .btn-fixStyle-lg {
+    width: 25%;
+  }
+}
+
+/* Mobile */
 @media (max-width: 480px) {
   .nav-link {
     margin: 0 1.2rem;
