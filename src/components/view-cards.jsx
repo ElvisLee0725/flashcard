@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Card from './card';
 import { AppContext } from '../appContext';
+import DeleteModal from './delete-modal';
 
 function ViewCards() {
   return (
@@ -25,19 +26,15 @@ function ViewCards() {
             )}
 
             <div>
-              <Link className='btn btn-purple btn-lg my-4' to='/add'>
+              <Link className='btn btn-primary btn-lg my-4' to='/add'>
                 <i className='fa fa-plus mr-3'></i>Add card
               </Link>
             </div>
             <div>
-              <button className='btn btn-navy btn-lg my-4' onClick={values.insertDummyData}>
+              <button className='btn btn-secondary btn-fixStyle-lg mb-3 my-sm-4 mr-sm-3' onClick={values.insertDummyData}>
                 <i className='fas fa-file-import mr-3'></i>Import test cards
               </button>
-            </div>
-            <div>
-              <button className='btn btn-navy btn-lg my-4' onClick={values.removeAllCards}>
-                <i className='fas fa-dumpster mr-3'></i>Delete all cards
-              </button>
+              <DeleteModal deleteType='all-cards' handleDelete={() => {}}/>
             </div>
           </div>
         );

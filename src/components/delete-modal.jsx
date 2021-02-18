@@ -10,6 +10,7 @@ class DeleteModal extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.confirmRemove = this.confirmRemove.bind(this);
+    this.confirmRemoveAll = this.confirmRemoveAll.bind(this);
   }
 
   openModal() {
@@ -30,7 +31,57 @@ class DeleteModal extends React.Component {
     this.context.removeCard();
   }
 
+  confirmRemoveAll() {
+    this.closeModal();
+    this.context.removeAllCards();
+  }
+
   render() {
+    const { deleteType } = this.props;
+    if(deleteType === 'all-cards') {
+      if (this.state.isOpen) {
+        return (
+          <div className='basic-modal' onClick={this.closeModal}>
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className='basic-modal-content'
+            >
+              <div onClick={this.closeModal} className='modal-close-btn'>
+                X
+              </div>
+              <h5 className='delete-title mb-4'>
+                Are you sure you want to delete all your cards?
+              </h5>
+
+              <div className='text-right mt-4'>
+                <button
+                  type='button'
+                  className='btn btn-outline-secondary mr-2'
+                  onClick={this.closeModal}
+                >
+                  Cancel
+                </button>
+                <button
+                  type='button'
+                  className='btn btn-danger'
+                  onClick={this.confirmRemoveAll}
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+  
+      return (
+        <button className='btn btn-danger btn-fixStyle-lg my-sm-4 ml-sm-4' onClick={this.openModal}>
+          <i className='fas fa-dumpster mr-3'></i>Delete all cards
+        </button>
+      );
+    }
+
+
     const { activeCard } = this.context;
     if (this.state.isOpen) {
       return (

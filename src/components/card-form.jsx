@@ -110,7 +110,7 @@ class CardForm extends React.Component {
             >
               Cancel
             </button>
-            <button type='submit' className='btn btn-navy btn-fixStyle'>
+            <button type='submit' className='btn btn-secondary btn-fixStyle'>
               Save
             </button>
           </div>
