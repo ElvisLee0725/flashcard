@@ -140,8 +140,8 @@ a {
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   z-index: 100;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   left: 0;
   top: 0;
   display: flex;
@@ -152,23 +152,25 @@ a {
   width: 50%;
   position: relative;
   margin: auto;
-  padding: 2rem;
+  padding: 0 2rem;
   z-index: 1;
+  max-height: calc(100% - 2rem);
+  display: flex;
+  flex-direction: column;
 }
 
-.scroll-modal {
-  height: 65%;
+.modal-top {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 0;
+}
+
+.modal-body-scroll {
   overflow-y: auto;
 }
 
 .modal-close-btn {
-  position: absolute;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
   line-height: 30px;
-  top: 1rem;
-  right: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition: 0.5s;
@@ -237,10 +239,6 @@ a {
 
   .basic-modal-content {
     width: 90%;
-    padding: 1rem;
-  }
-
-  .scroll-modal {
-    height: 95%;
+    padding: 0 1rem;
   }
 }

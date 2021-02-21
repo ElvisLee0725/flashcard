@@ -24,13 +24,13 @@ function ViewCards() {
                 </div>
               </Fragment>
             )}
-
+            
             <div>
               <Link className='btn btn-primary btn-lg my-4' to='/add'>
                 <i className='fa fa-plus mr-3'></i>Add card
               </Link>
             </div>
-            <div>
+            <div className='mt-5 mt-sm-0'>
               <button className='btn btn-secondary btn-fixStyle-lg mb-3 my-sm-4 mr-sm-3' onClick={values.insertDummyData}>
                 <i className='fas fa-file-import mr-3'></i>Import test cards
               </button>

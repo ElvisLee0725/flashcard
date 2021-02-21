@@ -26,10 +26,13 @@ class HowToUseModal extends React.Component {
         <div className='basic-modal' onClick={this.closeModal} >
           <div
             onClick={(e) => e.stopPropagation()}
-            className='basic-modal-content scroll-modal'
+            className='basic-modal-content'
           >
-            <div onClick={this.closeModal} className='modal-close-btn'>X</div>
-            <div>
+            <div className='modal-top'>
+             <div onClick={this.closeModal} className='modal-close-btn'>X</div>
+            </div>
+            
+            <div className='modal-body-scroll'>
               <h5>All Cards</h5>
               <p className='text-justify'>Create your own series of flashcards here. You can view all your flashcards, edit and delete single card, or mark only some of them for practicing just a subset of flashcards.</p>
               <br />
@@ -39,7 +42,7 @@ class HowToUseModal extends React.Component {
               <h5>Marked</h5>
               <p className='text-justify'>Practice only those flashcards you have marked with a star.</p>
 
-              <div className='text-right mt-4'>
+              <div className='text-right my-4'>
                 <button
                   type='button'
                   className='btn btn-outline-secondary mr-2'
@@ -47,7 +50,7 @@ class HowToUseModal extends React.Component {
                 >
                   Got it!
                 </button>
-            </div>
+              </div>
             </div>
           </div>
         </div>

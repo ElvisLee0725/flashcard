@@ -46,14 +46,14 @@ class DeleteModal extends React.Component {
               onClick={(e) => e.stopPropagation()}
               className='basic-modal-content'
             >
-              <div onClick={this.closeModal} className='modal-close-btn'>
-                X
+              <div className='modal-top'>
+                <div onClick={this.closeModal} className='modal-close-btn'>X</div>
               </div>
-              <h5 className='delete-title mb-4'>
+              <div className='delete-title'>
                 Are you sure you want to delete all your cards?
-              </h5>
+              </div>
 
-              <div className='text-right mt-4'>
+              <div className='text-right my-4'>
                 <button
                   type='button'
                   className='btn btn-outline-secondary mr-2'
@@ -90,15 +90,15 @@ class DeleteModal extends React.Component {
             onClick={(e) => e.stopPropagation()}
             className='basic-modal-content'
           >
-            <div onClick={this.closeModal} className='modal-close-btn'>
-              X
+            <div className='modal-top'>
+              <div onClick={this.closeModal} className='modal-close-btn'>X</div>
             </div>
-            <h5 className='delete-title mb-4'>
-              Are you sure you want to delete this card?
-            </h5>
-            <p className='mb-2'>{`Q: ${activeCard.question}`}</p>
-            <p className='mb-2'>{`A: ${activeCard.answer}`}</p>
-            <div className='text-right mt-4'>
+            <div className='delete-title'>
+              <h5>Are you sure you want to delete this card?</h5>
+              <p className='mb-2'>{`Q: ${activeCard.question}`}</p>
+              <p className='mb-2'>{`A: ${activeCard.answer}`}</p>
+            </div>
+            <div className='text-right my-4'>
               <button
                 type='button'
                 className='btn btn-outline-secondary mr-2'
